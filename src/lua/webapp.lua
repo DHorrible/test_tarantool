@@ -1,7 +1,7 @@
 #!/usr/bin/tarantool
 
 -- Server
-server = require('http.server').new('localhost', 8080)
+local server = require('http.server').new('localhost', 8080)
 
 -- Handlers
 postHandler = function(request) 
@@ -93,8 +93,8 @@ withKeyHandler = function(request)
 end
 
 -- Handlers
-httpd:route({ path = '/kv' }, postHandler)
-httpd:route({ path = '/kv/:key' }, withKeyHandler)
+server:route({ path = '/kv' }, postHandler)
+server:route({ path = '/kv/:key' }, withKeyHandler)
 
 -- Start
-httpd:start()
+server:start()

@@ -11,8 +11,8 @@ box.schema.user.passwd('admin', 'admin')
 box.once(
 	'kv_space', 
 	function()
-		space = box.schema.space.create('kv')
-		space:create_index(
+		box.schema.space.create('kv')
+		box.space.kv:create_index(
 			'primary', 
 			{
 				type = 'hash',
