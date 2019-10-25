@@ -1,4 +1,4 @@
-#!/usr/local/bin/tarantool
+#!/usr/bin/tarantool
 
 -- Server
 server = require('http.server').new('localhost', 8080)
@@ -19,7 +19,7 @@ postHandler = function(request)
 	if box.space.kv:count(key) == 0 then
 		local item = box.space.kv:insert({ key, value })
 		
-		request:render({ json = item })
+		request:render({ json = item })	-- Successfull
 		
 		return
 	else
@@ -42,7 +42,7 @@ putHandler = function(request)
 	if not value then
 		local item = box.space.kv:update(key, { value })
 		
-		request:render({ json = item })
+		request:render({ json = item })	-- Successfull
 		
 		return
 	else
@@ -58,12 +58,12 @@ getHandler = function(request)
 	if not item then
 		request:render(404) -- Key not found
 	else
-		request:render({ json = item })
+		request:render({ json = item }) -- Successfull
 	end
 end
 
 deleteHandler = function(request) 
-	local key = tonumber(request:stash('key'))
+	local key = request:stash('key')
 	
 	local item = box.space.kv:select(key)
 	
@@ -72,7 +72,7 @@ deleteHandler = function(request)
 	else
 		local deleteItem = box.space.kv:delete{ item }
 	
-		request:render({ json = deleteItem })
+		request:render({ json = deleteItem }) -- Successfull
 	end
 end
 
