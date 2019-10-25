@@ -3,7 +3,7 @@
 box.cfg
 {
 	listen = 3301,
-	logger = 'tarantool.log'
+	logger = '/home/psipilov/Desktop/tarantool/test_tarantool/tarantool.log'
 }
 
 box.schema.user.passwd('admin', 'admin')

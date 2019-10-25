@@ -1,53 +1,88 @@
-2019-10-25 05:24:28.920 [16641] main/102/main.lua C> Tarantool 2.1.2-201-gf741f2a72
-2019-10-25 05:24:28.920 [16641] main/102/main.lua C> log level 5
-2019-10-25 05:24:28.920 [16641] main/102/main.lua I> mapping 268435456 bytes for memtx tuple arena...
-2019-10-25 05:24:28.920 [16641] main/102/main.lua I> mapping 134217728 bytes for vinyl tuple arena...
-2019-10-25 05:24:28.926 [16641] main/102/main.lua I> instance uuid ea00244a-59ee-4daf-a9f1-1c796873200e
-2019-10-25 05:24:28.926 [16641] iproto/101/main I> binary: bound to 0.0.0.0:3301
-2019-10-25 05:24:28.926 [16641] main/102/main.lua I> initializing an empty data directory
-2019-10-25 05:24:28.957 [16641] main/102/main.lua I> assigned id 1 to replica ea00244a-59ee-4daf-a9f1-1c796873200e
-2019-10-25 05:24:28.957 [16641] main/102/main.lua I> cluster uuid 5db0dca9-5d39-40f7-b3d8-fb60bedddbe2
-2019-10-25 05:24:28.960 [16641] snapshot/101/main I> saving snapshot `./00000000000000000000.snap.inprogress'
-2019-10-25 05:24:28.969 [16641] snapshot/101/main I> done
-2019-10-25 05:24:28.970 [16641] main/102/main.lua I> ready to accept requests
-2019-10-25 05:24:28.970 [16641] main/104/checkpoint_daemon I> scheduled next checkpoint for Fri Oct 25 07:03:25 2019
-2019-10-25 05:24:28.971 [16641] main utils.c:985 E> LuajitError: ./src/lua/main.lua:14: assign to undeclared variable 'space'
-2019-10-25 05:24:28.971 [16641] main F> fatal error, exiting the event loop
-2019-10-25 05:24:36.351 [16647] main/102/main.lua C> Tarantool 2.1.2-201-gf741f2a72
-2019-10-25 05:24:36.351 [16647] main/102/main.lua C> log level 5
-2019-10-25 05:24:36.351 [16647] main/102/main.lua I> mapping 268435456 bytes for memtx tuple arena...
-2019-10-25 05:24:36.352 [16647] main/102/main.lua I> mapping 134217728 bytes for vinyl tuple arena...
-2019-10-25 05:24:36.357 [16647] main/102/main.lua I> instance uuid ea00244a-59ee-4daf-a9f1-1c796873200e
-2019-10-25 05:24:36.360 [16647] main/102/main.lua I> instance vclock {1: 4}
-2019-10-25 05:24:36.361 [16647] iproto/101/main I> binary: bound to 0.0.0.0:3301
-2019-10-25 05:24:36.361 [16647] main/102/main.lua I> recovery start
-2019-10-25 05:24:36.361 [16647] main/102/main.lua I> recovering from `./00000000000000000000.snap'
-2019-10-25 05:24:36.379 [16647] main/102/main.lua I> cluster uuid 5db0dca9-5d39-40f7-b3d8-fb60bedddbe2
-2019-10-25 05:24:36.388 [16647] main/102/main.lua I> assigned id 1 to replica ea00244a-59ee-4daf-a9f1-1c796873200e
-2019-10-25 05:24:36.388 [16647] main/102/main.lua I> recover from `./00000000000000000000.xlog'
-2019-10-25 05:24:36.389 [16647] main/102/main.lua recovery.cc:155 W> file `./00000000000000000000.xlog` wasn't correctly closed
-2019-10-25 05:24:36.391 [16647] main/102/main.lua I> ready to accept requests
-2019-10-25 05:24:36.391 [16647] main/102/main.lua C> leaving orphan mode
-2019-10-25 05:24:36.391 [16647] main/104/checkpoint_daemon I> scheduled next checkpoint for Fri Oct 25 06:35:17 2019
-2019-10-25 05:24:36.392 [16647] main C> entering the event loop
-2019-10-25 05:26:04.822 [16741] main/102/main.lua C> Tarantool 2.1.2-201-gf741f2a72
-2019-10-25 05:26:04.822 [16741] main/102/main.lua C> log level 5
-2019-10-25 05:26:04.822 [16741] main/102/main.lua I> mapping 268435456 bytes for memtx tuple arena...
-2019-10-25 05:26:04.822 [16741] main/102/main.lua I> mapping 134217728 bytes for vinyl tuple arena...
-2019-10-25 05:26:04.828 [16741] main/102/main.lua I> instance uuid ea00244a-59ee-4daf-a9f1-1c796873200e
-2019-10-25 05:26:04.831 [16741] main/102/main.lua I> instance vclock {1: 5}
-2019-10-25 05:26:04.831 [16741] iproto/101/main I> binary: bound to 0.0.0.0:3301
-2019-10-25 05:26:04.832 [16741] main/102/main.lua I> recovery start
-2019-10-25 05:26:04.832 [16741] main/102/main.lua I> recovering from `./00000000000000000000.snap'
-2019-10-25 05:26:04.849 [16741] main/102/main.lua I> cluster uuid 5db0dca9-5d39-40f7-b3d8-fb60bedddbe2
-2019-10-25 05:26:04.858 [16741] main/102/main.lua I> assigned id 1 to replica ea00244a-59ee-4daf-a9f1-1c796873200e
-2019-10-25 05:26:04.858 [16741] main/102/main.lua I> recover from `./00000000000000000000.xlog'
-2019-10-25 05:26:04.858 [16741] main/102/main.lua recovery.cc:155 W> file `./00000000000000000000.xlog` wasn't correctly closed
-2019-10-25 05:26:04.859 [16741] main/102/main.lua I> recover from `./00000000000000000004.xlog'
-2019-10-25 05:26:04.859 [16741] main/102/main.lua I> done `./00000000000000000004.xlog'
-2019-10-25 05:26:04.859 [16741] main/102/main.lua I> recover from `./00000000000000000005.xlog'
-2019-10-25 05:26:04.859 [16741] main/102/main.lua I> done `./00000000000000000005.xlog'
-2019-10-25 05:26:04.861 [16741] main/102/main.lua I> ready to accept requests
-2019-10-25 05:26:04.861 [16741] main/102/main.lua C> leaving orphan mode
-2019-10-25 05:26:04.861 [16741] main/104/checkpoint_daemon I> scheduled next checkpoint for Fri Oct 25 07:05:39 2019
-2019-10-25 05:26:04.862 [16741] main C> entering the event loop
+2019-10-25 06:03:25.836 [17978] main/102/main.lua C> Tarantool 2.1.2-201-gf741f2a72
+2019-10-25 06:03:25.836 [17978] main/102/main.lua C> log level 5
+2019-10-25 06:03:25.836 [17978] main/102/main.lua I> mapping 268435456 bytes for memtx tuple arena...
+2019-10-25 06:03:25.836 [17978] main/102/main.lua I> mapping 134217728 bytes for vinyl tuple arena...
+2019-10-25 06:03:25.842 [17978] main/102/main.lua I> instance uuid 0d048893-5d7d-4c5b-a185-812ab2345969
+2019-10-25 06:03:25.845 [17978] main/102/main.lua I> instance vclock {1: 5}
+2019-10-25 06:03:25.845 [17978] iproto/101/main I> binary: bound to 0.0.0.0:3301
+2019-10-25 06:03:25.846 [17978] main/102/main.lua I> recovery start
+2019-10-25 06:03:25.846 [17978] main/102/main.lua I> recovering from `./00000000000000000000.snap'
+2019-10-25 06:03:25.864 [17978] main/102/main.lua I> cluster uuid 299d103e-e8fb-41d7-b9db-1ddc9b993b83
+2019-10-25 06:03:25.874 [17978] main/102/main.lua I> assigned id 1 to replica 0d048893-5d7d-4c5b-a185-812ab2345969
+2019-10-25 06:03:25.874 [17978] main/102/main.lua I> recover from `./00000000000000000000.xlog'
+2019-10-25 06:03:25.875 [17978] main/102/main.lua I> done `./00000000000000000000.xlog'
+2019-10-25 06:03:25.875 [17978] main/102/main.lua I> recover from `./00000000000000000005.xlog'
+2019-10-25 06:03:25.875 [17978] main/102/main.lua I> done `./00000000000000000005.xlog'
+2019-10-25 06:03:25.876 [17978] main/102/main.lua I> ready to accept requests
+2019-10-25 06:03:25.876 [17978] main/102/main.lua C> leaving orphan mode
+2019-10-25 06:03:25.877 [17978] main/104/checkpoint_daemon I> scheduled next checkpoint for Fri Oct 25 07:23:20 2019
+2019-10-25 06:03:25.878 [17978] main C> entering the event loop
+2019-10-25 06:22:43.776 [20761] main/102/main.lua C> Tarantool 2.1.2-201-gf741f2a72
+2019-10-25 06:22:43.776 [20761] main/102/main.lua C> log level 5
+2019-10-25 06:22:43.776 [20761] main/102/main.lua I> mapping 268435456 bytes for memtx tuple arena...
+2019-10-25 06:22:43.776 [20761] main/102/main.lua I> mapping 134217728 bytes for vinyl tuple arena...
+2019-10-25 06:22:43.782 [20761] main/102/main.lua I> instance uuid 0d048893-5d7d-4c5b-a185-812ab2345969
+2019-10-25 06:22:43.785 [20761] main/102/main.lua I> instance vclock {1: 6}
+2019-10-25 06:22:43.785 [20761] iproto/101/main I> binary: bound to 0.0.0.0:3301
+2019-10-25 06:22:43.786 [20761] main/102/main.lua I> recovery start
+2019-10-25 06:22:43.786 [20761] main/102/main.lua I> recovering from `./00000000000000000000.snap'
+2019-10-25 06:22:43.803 [20761] main/102/main.lua I> cluster uuid 299d103e-e8fb-41d7-b9db-1ddc9b993b83
+2019-10-25 06:22:43.812 [20761] main/102/main.lua I> assigned id 1 to replica 0d048893-5d7d-4c5b-a185-812ab2345969
+2019-10-25 06:22:43.813 [20761] main/102/main.lua I> recover from `./00000000000000000000.xlog'
+2019-10-25 06:22:43.813 [20761] main/102/main.lua I> done `./00000000000000000000.xlog'
+2019-10-25 06:22:43.814 [20761] main/102/main.lua I> recover from `./00000000000000000005.xlog'
+2019-10-25 06:22:43.814 [20761] main/102/main.lua I> done `./00000000000000000005.xlog'
+2019-10-25 06:22:43.814 [20761] main/102/main.lua I> recover from `./00000000000000000006.xlog'
+2019-10-25 06:22:43.814 [20761] main/102/main.lua I> done `./00000000000000000006.xlog'
+2019-10-25 06:22:43.816 [20761] main/102/main.lua I> ready to accept requests
+2019-10-25 06:22:43.816 [20761] main/102/main.lua C> leaving orphan mode
+2019-10-25 06:22:43.816 [20761] main/104/checkpoint_daemon I> scheduled next checkpoint for Fri Oct 25 07:37:35 2019
+2019-10-25 06:22:43.817 [20761] main C> entering the event loop
+2019-10-25 06:33:24.912 [21198] main/102/main.lua C> Tarantool 2.1.2-201-gf741f2a72
+2019-10-25 06:33:24.912 [21198] main/102/main.lua C> log level 5
+2019-10-25 06:33:24.913 [21198] main/102/main.lua I> mapping 268435456 bytes for memtx tuple arena...
+2019-10-25 06:33:24.913 [21198] main/102/main.lua I> mapping 134217728 bytes for vinyl tuple arena...
+2019-10-25 06:33:24.919 [21198] main/102/main.lua I> instance uuid 0d048893-5d7d-4c5b-a185-812ab2345969
+2019-10-25 06:33:24.922 [21198] main/102/main.lua I> instance vclock {1: 7}
+2019-10-25 06:33:24.923 [21198] iproto/101/main I> binary: bound to 0.0.0.0:3301
+2019-10-25 06:33:24.923 [21198] main/102/main.lua I> recovery start
+2019-10-25 06:33:24.923 [21198] main/102/main.lua I> recovering from `./00000000000000000000.snap'
+2019-10-25 06:33:24.941 [21198] main/102/main.lua I> cluster uuid 299d103e-e8fb-41d7-b9db-1ddc9b993b83
+2019-10-25 06:33:24.950 [21198] main/102/main.lua I> assigned id 1 to replica 0d048893-5d7d-4c5b-a185-812ab2345969
+2019-10-25 06:33:24.950 [21198] main/102/main.lua I> recover from `./00000000000000000000.xlog'
+2019-10-25 06:33:24.951 [21198] main/102/main.lua I> done `./00000000000000000000.xlog'
+2019-10-25 06:33:24.951 [21198] main/102/main.lua I> recover from `./00000000000000000005.xlog'
+2019-10-25 06:33:24.951 [21198] main/102/main.lua I> done `./00000000000000000005.xlog'
+2019-10-25 06:33:24.951 [21198] main/102/main.lua I> recover from `./00000000000000000006.xlog'
+2019-10-25 06:33:24.951 [21198] main/102/main.lua I> done `./00000000000000000006.xlog'
+2019-10-25 06:33:24.952 [21198] main/102/main.lua I> recover from `./00000000000000000007.xlog'
+2019-10-25 06:33:24.952 [21198] main/102/main.lua I> done `./00000000000000000007.xlog'
+2019-10-25 06:33:24.954 [21198] main/102/main.lua I> ready to accept requests
+2019-10-25 06:33:24.954 [21198] main/102/main.lua C> leaving orphan mode
+2019-10-25 06:33:24.954 [21198] main/104/checkpoint_daemon I> scheduled next checkpoint for Fri Oct 25 08:01:58 2019
+2019-10-25 06:33:24.955 [21198] main C> entering the event loop
+2019-10-25 06:33:52.523 [21223] main/102/main.lua C> Tarantool 2.1.2-201-gf741f2a72
+2019-10-25 06:33:52.523 [21223] main/102/main.lua C> log level 5
+2019-10-25 06:33:52.524 [21223] main/102/main.lua I> mapping 268435456 bytes for memtx tuple arena...
+2019-10-25 06:33:52.524 [21223] main/102/main.lua I> mapping 134217728 bytes for vinyl tuple arena...
+2019-10-25 06:33:52.529 [21223] main/102/main.lua I> instance uuid 0d048893-5d7d-4c5b-a185-812ab2345969
+2019-10-25 06:33:52.534 [21223] main/102/main.lua I> instance vclock {1: 8}
+2019-10-25 06:33:52.534 [21223] iproto/101/main I> binary: bound to 0.0.0.0:3301
+2019-10-25 06:33:52.534 [21223] main/102/main.lua I> recovery start
+2019-10-25 06:33:52.534 [21223] main/102/main.lua I> recovering from `./00000000000000000000.snap'
+2019-10-25 06:33:52.553 [21223] main/102/main.lua I> cluster uuid 299d103e-e8fb-41d7-b9db-1ddc9b993b83
+2019-10-25 06:33:52.561 [21223] main/102/main.lua I> assigned id 1 to replica 0d048893-5d7d-4c5b-a185-812ab2345969
+2019-10-25 06:33:52.562 [21223] main/102/main.lua I> recover from `./00000000000000000000.xlog'
+2019-10-25 06:33:52.563 [21223] main/102/main.lua I> done `./00000000000000000000.xlog'
+2019-10-25 06:33:52.563 [21223] main/102/main.lua I> recover from `./00000000000000000005.xlog'
+2019-10-25 06:33:52.563 [21223] main/102/main.lua I> done `./00000000000000000005.xlog'
+2019-10-25 06:33:52.563 [21223] main/102/main.lua I> recover from `./00000000000000000006.xlog'
+2019-10-25 06:33:52.563 [21223] main/102/main.lua I> done `./00000000000000000006.xlog'
+2019-10-25 06:33:52.564 [21223] main/102/main.lua I> recover from `./00000000000000000007.xlog'
+2019-10-25 06:33:52.564 [21223] main/102/main.lua I> done `./00000000000000000007.xlog'
+2019-10-25 06:33:52.564 [21223] main/102/main.lua I> recover from `./00000000000000000008.xlog'
+2019-10-25 06:33:52.564 [21223] main/102/main.lua I> done `./00000000000000000008.xlog'
+2019-10-25 06:33:52.566 [21223] main/102/main.lua I> ready to accept requests
+2019-10-25 06:33:52.566 [21223] main/102/main.lua C> leaving orphan mode
+2019-10-25 06:33:52.566 [21223] main/104/checkpoint_daemon I> scheduled next checkpoint for Fri Oct 25 08:27:33 2019
+2019-10-25 06:33:52.567 [21223] main C> entering the event loop

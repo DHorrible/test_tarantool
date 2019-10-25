@@ -76,9 +76,25 @@ deleteHandler = function(request)
 	end
 end
 
--- Controllers
-httpd:route({ path = '/kv', method = 'POST' }, postHandler)
-httpd:route({ path = '/kv/:key', method = 'PUT' }, putHandler)
-httpd:route({ path = '/kv/:key', method = 'GET' }, getHandler)
-httpd:route({ path = '/kv/:key', method = 'DELETE' }, deleteHandler)
+withKeyHandler = function(request)
+	local method = request.method
+	
+	if method == 'GET' then
+		return getHandler(request)
+	end
+	
+	if method == 'PUT' then
+		return putHandler(request)
+	end
+	
+	if method == 'DELETE' then
+		return deleteHandler(request)
+	end
+end
 
+-- Handlers
+httpd:route({ path = '/kv' }, postHandler)
+httpd:route({ path = '/kv/:key' }, withKeyHandler)
+
+-- Start
+httpd:start()
