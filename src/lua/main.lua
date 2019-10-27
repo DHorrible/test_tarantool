@@ -1,9 +1,9 @@
-#!/usr/bin/tarantool
+#!/usr/bin/env tarantool
 
 box.cfg
 {
 	listen = 3301,
-	logger = '/home/psipilov/Desktop/tarantool/test_tarantool/tarantool.log'
+	logger = 'tarantool.log'
 }
 
 box.schema.user.passwd('admin', 'admin')

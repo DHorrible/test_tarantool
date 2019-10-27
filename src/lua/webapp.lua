@@ -1,33 +1,46 @@
-#!/usr/bin/tarantool
+#!/usr/bin/env tarantool
 
--- Server
-local server = require('http.server').new('localhost', 8080)
+local http_server = require('http.server')
+local log = require('log')
 
+local httpd = http_server.new(
+	'0.0.0.0', 8080, 
+	{
+		log_errors = true,
+	})
+	
 -- Handlers
-postHandler = function(request) 
+local postHandler = function(request) 
+	log:info('POST is starting')
+	
 	local body = request:json()
 	
 	local key = body.key
 	local value = body.value
 	
-	if not key or not value then 
+	if key == nil or value == nil then 
 		request:render(400) -- Body isn't correct
+		log:error('POST has error 400')
 	
 		return
 	end
 	
 	if box.space.kv:count(key) == 0 then
-		local item = box.space.kv:insert({ key, value })
+		local item = box.space.kv:insert({ key = key, value = value })
 		
 		request:render({ json = item })	-- Successfull
+		log:info('POST successfull')
 		
 		return
 	else
 		request:render(409) -- Space contains key
+		log:error('POST has error 409')
 	end
 end
 
-putHandler = function(request) 
+local putHandler = function(request) 
+	log:info('PUT is starting')
+
 	local body = request:json()
 	
 	local key = request:stash('key')
@@ -35,44 +48,55 @@ putHandler = function(request)
 	
 	if not box.space.kv:count(key) == 0 then
 		request:render(404) -- Key not found
+		log:error('PUT has error 404')
 		
 		return
 	end
 	
-	if not value then
+	if value == nil then
 		local item = box.space.kv:update(key, { value })
 		
 		request:render({ json = item })	-- Successfull
+		log:info('PUT successfull')
 		
 		return
 	else
 		request:render(400) -- Body isn't correct 
+		log:error('PUT has error 400')
 	end	
 end
 
-getHandler = function(request) 
+local getHandler = function(request)
+	log:info('GET is starting') 
+	
 	local key = request:stash('key')
 	
 	local item = box.space.kv:select(key)
 	
-	if not item then
-		request:render(404) -- Key not found
+	if #item == 0 then
+		request:render{ error = 404 } -- Key not found
+		log:error('GET has error 404')
 	else
-		request:render({ json = item }) -- Successfull
+		request:render{ json = item } -- Successfull
+		log:info('GET successfull')
 	end
 end
 
-deleteHandler = function(request) 
+local deleteHandler = function(request)
+	log:info('DELETE is starting') 
+	
 	local key = request:stash('key')
 	
 	local item = box.space.kv:select(key)
 	
-	if not item then
-		request:render(404) -- Key not found
+	if #item == 0 then
+		request:render{ error = 404 } -- Key not found
+		log:error('DELETE has error 404')
 	else
 		local deleteItem = box.space.kv:delete{ item }
 	
 		request:render({ json = deleteItem }) -- Successfull
+		log:info('DELETE successfull')
 	end
 end
 
@@ -92,9 +116,8 @@ withKeyHandler = function(request)
 	end
 end
 
--- Handlers
-server:route({ path = '/kv' }, postHandler)
-server:route({ path = '/kv/:key' }, withKeyHandler)
+httpd:set_router({ path = '/kv' }, postHandler)
+httpd:set_router({ path = '/kv/:key' }, withKeyHandler)
 
--- Start
-server:start()
+httpd:start()
+
