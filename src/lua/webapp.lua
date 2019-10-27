@@ -4,7 +4,7 @@ local http_server = require('http.server')
 local log = require('log')
 
 local httpd = http_server.new(
-	'0.0.0.0', 8080, 
+	'localhost', 8080, 
 	{
 		log_errors = true,
 	})
@@ -19,7 +19,7 @@ local postHandler = function(request)
 	local value = body.value
 	
 	if key == nil or value == nil then 
-		request:render(400) -- Body isn't correct
+		request:{ error = 400 } -- Body isn't correct
 		log:error('POST has error 400')
 	
 		return
@@ -28,12 +28,12 @@ local postHandler = function(request)
 	if box.space.kv:count(key) == 0 then
 		local item = box.space.kv:insert({ key = key, value = value })
 		
-		request:render({ json = item })	-- Successfull
+		request:render{ json = item }	-- Successfull
 		log:info('POST successfull')
 		
 		return
 	else
-		request:render(409) -- Space contains key
+		request:render{ error = 409 } -- Space contains key
 		log:error('POST has error 409')
 	end
 end
@@ -47,7 +47,7 @@ local putHandler = function(request)
 	local value = body.value
 	
 	if not box.space.kv:count(key) == 0 then
-		request:render(404) -- Key not found
+		request:render{ error = 404 } -- Key not found
 		log:error('PUT has error 404')
 		
 		return
@@ -56,12 +56,12 @@ local putHandler = function(request)
 	if value == nil then
 		local item = box.space.kv:update(key, { value })
 		
-		request:render({ json = item })	-- Successfull
+		request:render{ json = item }	-- Successfull
 		log:info('PUT successfull')
 		
 		return
 	else
-		request:render(400) -- Body isn't correct 
+		request:render{ error = 400 } -- Body isn't correct 
 		log:error('PUT has error 400')
 	end	
 end
@@ -95,12 +95,12 @@ local deleteHandler = function(request)
 	else
 		local deleteItem = box.space.kv:delete{ item }
 	
-		request:render({ json = deleteItem }) -- Successfull
+		request:render{ json = deleteItem } -- Successfull
 		log:info('DELETE successfull')
 	end
 end
 
-withKeyHandler = function(request)
+local withKeyHandler = function(request)
 	local method = request.method
 	
 	if method == 'GET' then
@@ -116,8 +116,8 @@ withKeyHandler = function(request)
 	end
 end
 
-httpd:set_router({ path = '/kv' }, postHandler)
-httpd:set_router({ path = '/kv/:key' }, withKeyHandler)
+httpd:route({ path = '/kv' }, postHandler)
+httpd:route({ path = '/kv/:key' }, withKeyHandler)
 
 httpd:start()
 
